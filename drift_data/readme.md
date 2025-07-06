@@ -1,0 +1,12 @@
+ Workloads are parts of the environments and they also cause concept drifts that DHDA addresses. The datasets contain rich workloads with diverse real-world benchmarks, e.g., SQLite-bench/DB-bench under different request-types/loads for SQLite(see below):
+
+| System      | Workloads                                                                                                                                                                                       |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SaC         | srad,pfilter,kmeans,hotspot,nw,nbody100,nbody150,nbody750,gc,cg                                                                                                                                 |
+| x264        | video8p/2s,video32p/11s,video128p/44s                                                                                                                                                           |
+| Storm       | WordCount,RollingCount,RollingSort,StreamOL                                                                                                                                                     |
+| Spear       | SAT774v/5934c,SAT1008v/7728c,SAT1554v/11914c,SAT978v/7498c                                                                                                                                      |
+| SQLite      | fillseq100k,fillseqbatch.1,fillrandom.1,fillrandsync.1,fillrandbatch.1,fillseqbatch.3,fillrandom.3,fillrand100K.3,fillrandom.4,fillrandom.5,fillrand100K.6,readrand100K.6,readseq.10,readseq.13 |
+| NGINX       | client-serversetup                                                                                                                                                                              |
+| ExaStencils | code-generationW1,code-generationW2,code-generationW3,code-generationW4                                                                                                                         |
+| DeepArch    | UCRTimeSeries                                                                                                                                                                                   |
