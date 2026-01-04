@@ -32,6 +32,9 @@ the *main program* for using DHDA, which automatically reads data from csv files
 - **requirements.txt**:
 the required packages for running main.py.
 
+- **result_analysis.py**:
+reproduce the main results presented in the paper.
+
 # Prerequisites and Installation
 1. Download all the files into the same folder/clone the repository.
 
@@ -86,18 +89,42 @@ Below are the repositories of the SOTA performance prediction models, which are 
 
 # RQ Reproduction
 - [**RQ1**](./results/RQ1-RESULT):
-  
-  How does DHDA compare to state-of-the-art approachesin terms of accuracy and computational cost?
+
+  **How does DHDA compare to state-of-the-art approachesin terms of accuracy and computational cost?**
+
+  Using the command line: run the following command to run the experiments
+      
+      python run_dhda.py
+      python run_rq1.py
+
 
 - [**RQ2**](./results/RQ2-RESULT):
   
-  How does DHDA impact different local models used for online performance learning?
+  **How does DHDA impact different local models used for online performance learning?**
   
+  Using the command line: run the following command to run the experiments
+      
+      python run_dhda.py
+      python run_rq2.py
+
 - [**RQ3**](./results/RQ3-RESULT):
   
-  How do the key designs in DHDA contribute?
+  **How do the key designs in DHDA contribute?**
+
+  Using the command line: run the following command to run the experiments
+      
+      python run_dhda.py
+      python run_rq3.py
 
 - [**RQ4**](./results/RQ4-RESULT):
   
-  What is the sensitivity of DHDA to its parameter 𝛼?
-  
+  **What is the sensitivity of DHDA to its parameter 𝛼?**
+
+  Using the command line: run the following command to run the experiments
+
+      python run_rq4.py
+
+- **Show result** 
+  Using the command line: run the following command to reproduce the main results presented in the paper.
+
+      python result_analysis.py
