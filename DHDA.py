@@ -91,6 +91,8 @@ def compute_hoeffding_bound(G_best, G_second, range_val, confidence, n):
 
 
 baseline_models = ['LR', 'HT', 'KNN', 'RF']
+
+
 class DHDA_Regressor:
     def __init__(self, depth=1, min_clock=32, base_model="RF", Hybrid_Frequency=3,
                  Hybrid_Update=True, Upper_Adapt=True, Lower_Adapt=True):
@@ -355,12 +357,12 @@ class DHDA_Regressor:
 
                 if np.mean(self.recent_error[cluster_index]) >= self.learn_threshold or len(
                         self.clusters_index[cluster_index]) < 128:
-                    if self.HYBRID_UPDATE:
-                        clusters_index = list()
-                        clusters_index = recursive_dividing(0, 1, self.CART.tree_, current_x, self.current_data_index,
-                                                            max_depth=self.depth, min_samples=0,
-                                                            cluster_indexes_all=clusters_index)
-                        self.clusters_index = clusters_index
+
+                    clusters_index = []
+                    clusters_index = recursive_dividing(0, 1, self.CART.tree_, current_x, self.current_data_index,
+                                                        max_depth=self.depth, min_samples=0,
+                                                        cluster_indexes_all=clusters_index)
+                    self.clusters_index = clusters_index
                     y_label = list()
                     if self.Upper_Adapt:
                         for index in self.current_data_index:
@@ -368,7 +370,9 @@ class DHDA_Regressor:
                                 if index in cluster:
                                     y_label.append(label)
                                     continue
+
                         self.fit_rfc(current_x, y_label)
+
 
                     train_x = list()
                     train_y = list()
@@ -497,7 +501,6 @@ class ModelsManager:
 
     def add_model_in_current_cart(self, model, index):
         self.models[self.current_cart_index][index].append(model)
-
 
     def get_model_by_accuracy(self, x, y, cluster_index):
         if len(self.models[self.current_cart_index][cluster_index]) == 0:

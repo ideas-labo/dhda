@@ -139,15 +139,16 @@ def build_summary_table(
     return summary_df
 
 RQs_result = {
-    'RQ1': r'D:\CodePycharm\dhda-artifact\dhda-main\results\RQ1-RESULT\MAPE',
-    'RQ2': r'D:\CodePycharm\dhda-artifact\dhda-main\results\RQ2-RESULT',
-    'RQ3': r'D:\CodePycharm\dhda-artifact\dhda-main\results\RQ3-RESULT',
-    'RQ4': r'D:\CodePycharm\dhda-artifact\dhda-main\results\RQ4-RESULT\MAPE'
+    'RQ1': r'\results\RQ1-RESULT\MAPE',
+    'RQ2': r'\results\RQ2-RESULT',
+    'RQ3': r'\results\RQ3-RESULT',
+    'RQ4': r'\results\RQ4-RESULT\MAPE'
 }
 
 for rq, result_path in RQs_result.items():
     print(f'---------{rq}---------')
     if rq == 'RQ1' or rq == 'RQ2':
+        print(f'summary info: rank_median_iqr')
         for sys_file in os.listdir(result_path):
             print(sys_file)
             if sys_file.endswith('.csv'):
@@ -157,6 +158,7 @@ for rq, result_path in RQs_result.items():
                 df = build_summary_table(rank_dict, stats_dict)
                 print(df)
     elif rq == 'RQ3':
+        print(f'summary info: stat-significance_median_iqr')
         for sys_file in os.listdir(result_path):
             print(sys_file)
             if sys_file.endswith('.csv'):
@@ -166,6 +168,7 @@ for rq, result_path in RQs_result.items():
                 df = build_summary_table(w_dict, stats_dict)
                 print(df)
     elif rq == 'RQ4':
+        print(f'summary info: median-error_median-time')
         for sys_file in os.listdir(result_path):
             print(sys_file)
             mape_file_path = os.path.join(result_path, sys_file)
